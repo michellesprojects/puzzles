@@ -4,12 +4,6 @@ List Rotation: Slice
 We would like to “rotate” a list, or **move elements forward** in a list by a number of spaces, `k`.
 '''
 
-
-
-
-
-
-
 #This solution continiously removes the last element of the list and inserts it at the front, repeated num_rotations (adjusted) times
 def rotate(my_list, num_rotations):
 	#Get the net number of rotations, in num is greater than size of list to prevent repeating operations
