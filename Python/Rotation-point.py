@@ -26,3 +26,32 @@ def rotation_point(rotated_list):
       return index #We can return immediately after finding a value smaller than arr[0], because the input was a sorted rotated list  
 
   return 0
+ 
+ 
+ # find rotation point 
+# O(logN) time requirement
+# return index of "rotation point" element
+
+#using Binary Search to find the smallest element in the list
+def rotation_point_Binary_Search(rotated_list):
+  #inital low and high 
+  low = 0
+  high = len(rotated_list) - 1
+
+  while(low <= high):
+
+    mid = (low + high) // 2
+
+    #using modulo to adjust indices for out-of-bounds
+    mid_prev = (mid-1) % len(rotated_list)
+    mid_next = (mid+1) % len(rotated_list)
+
+    #if value at mid < both mid_prev and mid_next, it's the target
+    if(rotated_list[mid] < rotated_list[mid_prev] and rotated_list[mid] < rotated_list[mid_next]):
+      return mid
+    
+    #if left side of list is smaller, go left 
+    if(rotated_list[mid] < rotated_list[high]):
+      high = mid - 1 
+    else: #if right side is smaller, go right
+      low = mid + 1
