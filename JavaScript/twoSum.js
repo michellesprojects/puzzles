@@ -29,7 +29,7 @@ var twoSum = function(nums, target) {
     
     for(i=0; i<nums.length; i++){
         comp = target - nums[i];
-        if(map.has(comp)){ //check to see if the map contains the compliment, if it does return the two indices
+        if(map.has(comp)){ //check to see if the map contains the comp, if it does return the two indices
             return [map.get(comp), i];
         }
 
